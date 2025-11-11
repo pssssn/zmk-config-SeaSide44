@@ -55,19 +55,19 @@
 
         Number,Symbol {
             bindings = <
-&trans  &kp PLUS      &kp N7        &kp N8        &kp N9        &kp LEFT_PARENTHESIS                    &kp RIGHT_PARENTHESIS  &kp EXCLAMATION  &kp QUESTION    &kp AT_SIGN  &trans  &trans
-&trans  &kp MINUS     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp LEFT_BRACKET                        &kp RIGHT_BRACKET      &kp MINUS        &kp UNDERSCORE  &kp TILDE    &trans  &trans
-&trans  &kp ASTERISK  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp LEFT_BRACE                          &kp RIGHT_BRACE        &kp SLASH        &trans          &trans       &trans  &trans
+&trans  &kp PLUS      &kp N7        &kp N8        &kp N9        &kp LEFT_PARENTHESIS                    &kp RIGHT_PARENTHESIS  &kp EXCLAMATION  &kp QUESTION    &kp HASH   &trans  &trans
+&trans  &kp MINUS     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp LEFT_BRACKET                        &kp RIGHT_BRACKET      &kp MINUS        &kp UNDERSCORE  &kp TILDE  &trans  &trans
+&trans  &kp ASTERISK  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp LEFT_BRACE                          &kp RIGHT_BRACE        &trans           &trans          &trans     &trans  &trans
                       &kp N0        &kp PERIOD    &trans        &trans                &trans    &trans  &trans                                  &trans
             >;
         };
 
         Mouse,Function {
             bindings = <
-&trans  &kp PAUSE_BREAK  &kp F9  &kp F10  &kp F11  &kp F12                    &trans         &trans          &trans          &trans           &trans    &trans
+&trans  &kp PAUSE_BREAK  &kp F9  &kp F10  &kp F11  &kp F12                    &none          &none           &none           &none            &none     &trans
 &trans  &kp HOME         &kp F5  &kp F6   &kp F7   &kp F8                     &kp PAGE_UP    &mkp LCLK       &kp UP_ARROW    &mkp RCLK        &mkp MB3  &trans
 &trans  &kp END          &kp F1  &kp F2   &kp F3   &kp F4                     &kp PAGE_DOWN  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &mkp MB4  &trans
-                         &trans  &trans   &trans   &trans   &trans    &trans  &trans                         &trans
+                         &none   &none    &trans   &trans   &trans    &trans  &trans                         &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
@@ -75,10 +75,10 @@
 
         Setting {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans          &trans
+&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
+              &none  &none  &none  &none  &none    &none  &none         &none
             >;
         };
     };
