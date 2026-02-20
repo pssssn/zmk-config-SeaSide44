@@ -23,7 +23,16 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
 
-    };
+    }; 
+};
+
+/* rgb */
+/ {
+  aliases {
+    led-red = &led0;
+    led-green = &led1;
+    led-blue = &led2;
+  };
 };
 
 /* SPI 設定 */
