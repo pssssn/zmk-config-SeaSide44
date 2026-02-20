@@ -69,3 +69,13 @@
     };
 };
 
+#include <input/processors.dtsi>
+
+/* pmw3610 トラックボール用 listener */
+&trackball_listener {
+    scroller {
+        /* SCRL レイヤーが有効なときだけ */
+        layers = <SCRL>;
+        input-processors = <&zip_xy_to_scroll_mapper>;
+    };
+};
