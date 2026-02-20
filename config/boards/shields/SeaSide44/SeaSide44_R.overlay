@@ -75,7 +75,7 @@
 /* 実在するノードパスに対して設定を足す */
 &{/soc/spi@40003000/trackball@0} {
   scroller {
-    layers = <SCRL>;
+    layers = <3>;
     input-processors = <&zip_xy_to_scroll_mapper>;
   };
 };
