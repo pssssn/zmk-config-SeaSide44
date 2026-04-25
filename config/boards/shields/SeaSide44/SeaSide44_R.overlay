@@ -65,17 +65,9 @@
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         // automouse-layer = <4>; //ここをコメントアウトするとオートマウスレイヤーがオフになる
-        scroll-layers = <5>;
+        scroll-layers = <3>;
     };
 };
 
 /* pmw3610 トラックボール用 listener */
 #include <input/processors.dtsi>
-
-/* 実在するノードパスに対して設定を足す */
-&{/soc/spi@40003000/trackball@0} {
-  scroller {
-    layers = <3>;
-    input-processors = <&zip_xy_to_scroll_mapper>;
-  };
-};
