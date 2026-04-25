@@ -1,28 +1,8 @@
-#include <layout_shift.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-
-/ {
-    behaviors {
-        // Keep the original key_press behavior for ZMK core components
-
-        original_key_press: original_key_press {
-            compatible = "zmk,behavior-key-press";
-            #binding-cells = <1>;
-            label = "KEY_PRESS";
-        };
-
-        // Override the existing &kp behavior to use our custom implementation
-
-        kp: key_press {
-            compatible = "zmk,behavior-layout-shift-key-press";
-            #binding-cells = <1>;
-            label = "LAYOUT_SHIFT_KEY_PRESS";
-        };
-    };
-};
+#include <layout_shift.dtsi>
 
 #define MOUSE 4
 #define SCROLL 5
@@ -51,6 +31,16 @@
     };
 
     behaviors {
+        original_key_press: original_key_press {
+            compatible = "zmk,behavior-key-press";
+            #binding-cells = <1>;
+            label = "KEY_PRESS";
+        };
+        kp: key_press {
+            compatible = "zmk,behavior-layout-shift-key-press";
+            #binding-cells = <1>;
+            label = "LAYOUT_SHIFT_KEY_PRESS";
+        };
         lt_to_layer_0: lt_to_layer_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
@@ -58,6 +48,15 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
+        };
+        st: scroll_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Scroll / Tap";
+            bindings = <&mo>, <&kp>;
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+            hold-while-undecided;
         };
     };
 
@@ -69,10 +68,8 @@
 &kp ESCAPE  &kp Q  &kp W         &kp E         &kp R                   &kp T                                           &kp Y        &kp U  &kp I      &kp O       &kp P          &kp DEL
 &kp TAB     &kp A  &kp S         &kp D         &kp F                   &kp G                                           &kp H        &kp J  &kp K      &kp L       &kp SEMICOLON  &kp SQT
 &kp LSHFT   &kp Z  &kp X         &kp C         &kp V                   &kp B                                           &kp N        &kp M  &kp COMMA  &kp PERIOD  &kp SLASH      &kp NON_US_BACKSLASH
-                   &kp LEFT_ALT  &kp LEFT_WIN  &mt LEFT_CONTROL LANG2  &lt 2 SPACE  &lt 3 LANGUAGE_1    &kp BACKSPACE  &lt 1 ENTER         &kp INS
+                   &kp LEFT_ALT  &kp LEFT_WIN  &mt LEFT_CONTROL LANG2  &lt 2 SPACE  &st 3 LANGUAGE_1    &kp BACKSPACE  &lt 1 ENTER         &kp INS
             >;
-
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
         };
 
         Number,Symbol {
@@ -92,7 +89,6 @@
                          &none   &none   &trans  &trans   &trans    &trans  &trans                         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
         };
 
         Setting {
