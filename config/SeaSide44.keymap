@@ -22,21 +22,6 @@
     };
 };
 
-/ {
-    keymap {
-        compatible = "zmk,keymap";
-
-        default_layer {
-            bindings = <
-                &kpls EQUAL    // 通常は = を出力するが、JISレイアウトでは _ (JISレイアウトでの = に対応)を出力する
-                &tog_ls        // レイアウトシフトのオン/オフを切り替える
-                &tog_ls_on     // レイアウトシフトをオンにする
-                &tog_ls_off    // レイアウトシフトをオフにする
-            >;
-        };
-    };
-};
-
 #define MOUSE 4
 #define SCROLL 5
 #define NUM 6
